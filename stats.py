@@ -3,12 +3,24 @@ def count_words(text):
   return len(words)
 
 def count_characters(text):
-  words_dictionary = {}
-
-  for word in text.lower():
-    if word in words_dictionary:
-      words_dictionary[word] += 1
+  char_counts = {}
+  for char in text.lower():
+    if char in char_counts:
+      char_counts[char] += 1
     else:
-      words_dictionary[word] = 1
-      
-  return words_dictionary
+      char_counts[char] = 1      
+  return char_counts
+
+def sort_on(char_info):
+  return char_info["num"]
+
+def chars_dict_to_sorted_list(char_counts):
+  sorted_char_list = []
+  for char in char_counts:
+    if char.isalpha():
+      char_info = {}
+      char_info["char"] = char
+      char_info["num"] = char_counts[char]
+      sorted_char_list.append(char_info)
+  sorted_char_list.sort(reverse=True, key=sort_on)
+  return sorted_char_list
