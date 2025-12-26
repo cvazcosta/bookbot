@@ -11,6 +11,7 @@ def main():
   print("----------- Word Count ----------")
   text = get_book_text("books/frankenstein.txt")
   print(f"Found {count_words(text)} total words")
+  
   print("--------- Character Count -------")
   char_info = count_characters(text)
   sorted_char_list = chars_dict_to_sorted_list(char_info)
